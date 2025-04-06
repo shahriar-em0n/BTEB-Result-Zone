@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTEB Results Zone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://seeklogo.com/images/B/bteb-logo-657807AF13-seeklogo.com.png" alt="BTEB Logo">
+                <div class="logo-text">
+                    <h1>BTEB Results Zone</h1>
+                    <p>Bangladesh Technical Education Board</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active">Results</a></li>
+                    <li><a href="admin.html">Admin Panel</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Official Results Portal</div>
+                <h2>Find Your <span class="highlight">Results</span></h2>
+                <p>Access your BTEB examination results quickly and securely. Enter your credentials below to view comprehensive grade reports.</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-search"></i>
+                        <span>Fast Search</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-print"></i>
+                        <span>Print Results</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,229.3C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h3>Search Results</h3>
+                <form id="results-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="exam-type">Exam Type</label>
+                            <select id="exam-type" required>
+                                <option value="">Select Exam Type</option>
+                                <option value="diploma">Diploma in Engineering</option>
+                                <option value="hsc">HSC Vocational</option>
+                                <option value="ssc">SSC Vocational</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <select id="year" required>
+                                <option value="">Select Year</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roll">Roll Number</label>
+                            <input type="text" id="roll" placeholder="Enter Roll Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg">Registration Number</label>
+                            <input type="text" id="reg" placeholder="Enter Registration Number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search Results</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div id="results-display" class="results-container" style="display: none;">
+                <div class="results-header">
+                    <h3>Examination Results</h3>
+                    <button id="print-btn" class="btn btn-secondary"><i class="fas fa-print"></i> Print Results</button>
+                </div>
+                <div class="student-info">
+                    <div class="student-header">
+                        <div class="student-basic">
+                            <h4 id="student-name"></h4>
+                            <p><strong>Institute:</strong> <span id="institute"></span></p>
+                            <p><strong>Technology:</strong> <span id="technology"></span></p>
+                        </div>
+                        <div class="student-result">
+                            <p><strong>Roll No:</strong> <span id="roll-display"></span></p>
+                            <p><strong>Registration No:</strong> <span id="reg-display"></span></p>
+                            <p><strong>GPA:</strong> <span id="gpa-display"></span></p>
+                            <p><strong>Result:</strong> <span id="result-status"></span></p>
+                        </div>
+                    </div>
+                    <table class="result-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Credit</th>
+                                <th>Grade</th>
+                                <th>Grade Point</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subjects-table">
+                            <!-- Subjects will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 BTEB Results Zone. All rights reserved.</p>
+                <p>Designed & Developed by Error404</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="results.js"></script>
+</body>
+</html> 
